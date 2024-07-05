@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { set } from "zod";
 
 type Props = {};
 
@@ -10,10 +11,21 @@ function MiniGame({}: Props) {
       position: { x: 0, y: 0 },
     },
   ];
+
+  const Street = [
+    {
+      p1: "______________________|",
+    },
+  ];
   const [car, setCar] = useState(Car);
   const [press, setPress] = useState(false);
+  const [fuel, setFuel] = useState(100);
   const handlePress = () => {
     setPress(true);
+  };
+
+  const reFuel = () => {
+    setFuel(100);
   };
 
   return (
@@ -24,7 +36,12 @@ function MiniGame({}: Props) {
         </h1>
         <button
           onClick={() => {
-            const newX = car[0].position.x + 1;
+            setFuel(fuel - 10);
+            if (fuel <= 20) {
+              alert("You are soon out of fuel");
+              return;
+            }
+            const newX = car[0]!.position.x + 1;
 
             setCar([{ logo: "🚗", position: { x: newX, y: 0 } }]);
           }}
@@ -34,7 +51,12 @@ function MiniGame({}: Props) {
         </button>
         <button
           onClick={() => {
-            const newX1 = car[0].position.x - 1;
+            setFuel(fuel - 10);
+            if (fuel <= 20) {
+              alert("You are soon out of fuel");
+              return;
+            }
+            const newX1 = car[0]!.position.x - 1;
 
             setCar([{ logo: "🚗", position: { x: newX1, y: 0 } }]);
           }}
@@ -44,7 +66,12 @@ function MiniGame({}: Props) {
         </button>
         <button
           onClick={() => {
-            const newY1 = car[0].position.y + 1;
+            setFuel(fuel - 10);
+            if (fuel <= 20) {
+              alert("You are soon out of fuel");
+              return;
+            }
+            const newY1 = car[0]!.position.y + 1;
 
             setCar([{ logo: "🚗", position: { x: 0, y: newY1 } }]);
           }}
@@ -54,13 +81,22 @@ function MiniGame({}: Props) {
         </button>
         <button
           onClick={() => {
-            const newY1 = car[0].position.y - 1;
+            setFuel(fuel - 10);
+            if (fuel <= 20) {
+              alert("You are soon out of fuel");
+              return;
+            }
+            const newY1 = car[0]!.position.y - 1;
 
             setCar([{ logo: "🚗", position: { x: 0, y: newY1 } }]);
           }}
           className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:via-blue-300 hover:to-cyan-400 hover:text-black"
         >
           <span className="ml-2">Down</span>
+        </button>
+        <button onClick={reFuel} className="btn btn-primary">
+          {" "}
+          Refuel
         </button>
 
         <div>
@@ -76,17 +112,22 @@ function MiniGame({}: Props) {
         <div className="mockup-phone">
           <div className="camera"></div>
           <div className="display">
-            <div className="artboard artboard-demo phone-1">
-              {" "}
+            <div className="artboard artboard-demo phone-1 ">
               <div
+                className={fuel <= 20 ? "tooltip tooltip-open " : "tooltip"}
+                data-tip={
+                  fuel <= 20
+                    ? "Out of fuel press the refuel button"
+                    : "This is the car"
+                }
                 style={{
                   position: "absolute",
-                  left: `${car[0].position.x * 20}px`,
-                  top: `${car[0].position.y * 20}px`,
+                  left: `${car[0]!.position.x * 20}px`,
+                  top: `${car[0]!.position.y * 20}px`,
                   transition: "left 0.5s, top 0.5s",
                 }}
               >
-                {car[0].logo}
+                {car[0]!.logo}
               </div>
             </div>
           </div>
