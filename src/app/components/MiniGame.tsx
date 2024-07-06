@@ -1,13 +1,21 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { set } from "zod";
 
 type Props = {};
 
 function MiniGame({}: Props) {
+  const [carPicked, setCarPicked] = useState("🚗");
   const Car = [
     {
       logo: "🚗",
+      position: { x: 0, y: 0 },
+    },
+    {
+      logo: "🚙",
+      position: { x: 0, y: 0 },
+    },
+    {
+      logo: "🚕",
       position: { x: 0, y: 0 },
     },
   ];
@@ -15,10 +23,13 @@ function MiniGame({}: Props) {
   const [car, setCar] = useState(Car);
   const [fuel, setFuel] = useState(100);
   const [maxForward, setMaxForward] = useState(0);
-  const prevMaxForwardRef = useRef();
 
   const reFuel = () => {
     setFuel(100);
+  };
+
+  const handleCarPick = (car: string) => {
+    setCarPicked(car);
   };
 
   return (
@@ -27,6 +38,17 @@ function MiniGame({}: Props) {
         <h1 className="text-5xl font-extrabold tracking-tight md:-mb-4 lg:text-6xl xl:text-7xl">
           Try the miniGame that's coded in JavaScript
         </h1>
+        <div className="flex flex-row space-x-5 p-4">
+          <a className="cursor-pointer" onClick={() => setCarPicked("🚕")}>
+            🚕
+          </a>
+          <a className="cursor-pointer" onClick={() => setCarPicked("🚗")}>
+            🚗
+          </a>
+          <a className="cursor-pointer" onClick={() => setCarPicked("🚙")}>
+            🚙
+          </a>
+        </div>
         <button
           onClick={() => {
             setFuel((fuel) => fuel - 10);
@@ -41,10 +63,10 @@ function MiniGame({}: Props) {
             }
             setCar((prevCar) => [
               {
-                logo: "🚗",
+                logo: carPicked,
                 position: {
-                  x: prevCar[0].position.x + 1,
-                  y: prevCar[0].position.y,
+                  x: prevCar[0]!.position.x + 1,
+                  y: prevCar[0]!.position.y,
                 },
               },
             ]);
@@ -64,10 +86,10 @@ function MiniGame({}: Props) {
             }
             setCar((prevCar) => [
               {
-                logo: "🚗",
+                logo: carPicked,
                 position: {
-                  x: prevCar[0].position.x - 1,
-                  y: prevCar[0].position.y,
+                  x: prevCar[0]!.position.x - 1,
+                  y: prevCar[0]!.position.y,
                 },
               },
             ]);
@@ -85,10 +107,10 @@ function MiniGame({}: Props) {
             }
             setCar((prevCar) => [
               {
-                logo: "🚗",
+                logo: carPicked,
                 position: {
-                  x: prevCar[0].position.x,
-                  y: prevCar[0].position.y + 1,
+                  x: prevCar[0]!.position.x,
+                  y: prevCar[0]!.position.y + 1,
                 },
               },
             ]);
@@ -106,10 +128,10 @@ function MiniGame({}: Props) {
             }
             setCar((prevCar) => [
               {
-                logo: "🚗",
+                logo: carPicked,
                 position: {
-                  x: prevCar[0].position.x,
-                  y: prevCar[0].position.y - 1,
+                  x: prevCar[0]!.position.x,
+                  y: prevCar[0]!.position.y - 1,
                 },
               },
             ]);
@@ -118,9 +140,11 @@ function MiniGame({}: Props) {
         >
           <span className="ml-2">Down</span>
         </button>
-        <button onClick={reFuel} className="btn btn-primary">
-          Refuel
-        </button>
+        {fuel <= 20 && (
+          <button onClick={reFuel} className="btn btn-primary ">
+            Refuel
+          </button>
+        )}
 
         <div>
           <p className="text-lg leading-relaxed opacity-80">
