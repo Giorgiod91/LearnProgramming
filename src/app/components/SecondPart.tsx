@@ -1,18 +1,18 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
+import { motion } from "framer-motion";
 
 type Props = {};
 const TheCode = "<div> h1 hello world  h1</div>";
 const TheCode2 = " hello world ";
-const tryOut = "Try out urself";
+const tryOut = "Try out yourself";
 
 const theTryOut = (input: string) => {
   if (input === "<div> h1 hello world  h1</div>") {
     return "hello world";
   } else {
-    return "oh no something is wrong or missing";
+    return "Oh no, something is wrong or missing.";
   }
 };
 
@@ -24,7 +24,7 @@ function SecondPart({}: Props) {
   };
 
   const [text, count] = useTypewriter({
-    words: ["<div> h1 hello world  h1</div>"],
+    words: [TheCode],
     loop: 1,
     deleteSpeed: 50,
     onLoopDone() {
@@ -33,7 +33,7 @@ function SecondPart({}: Props) {
   });
 
   const [text2, count2] = useTypewriter({
-    words: ["hello world"],
+    words: [TheCode2],
     loop: 1,
     deleteSpeed: 50,
   });
@@ -49,31 +49,59 @@ function SecondPart({}: Props) {
 
   return (
     <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center p-4">
-      <h1>You can Create things just with some Code ! try out yourself</h1>
-      <div className="grid   grid-cols-1 gap-5 p-4 sm:grid-cols-2 md:gap-8">
-        <div className="mockup-code h-[200px] w-[600px] ">
+      <h1 className="mb-4 text-2xl font-bold text-gray-800">
+        You can create things just with some code! Try it out yourself
+      </h1>
+      <div className="grid grid-cols-1 gap-5 p-4 sm:grid-cols-2 md:gap-8">
+        <motion.div
+          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <pre data-prefix="">
             <code>{text}</code>
           </pre>
-        </div>
-        <div className="mockup-code h-[200px] w-[600px] ">
+        </motion.div>
+        <motion.div
+          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <pre data-prefix="">
             <code>{finished ? text2 : "....."}</code>
           </pre>
-        </div>
+        </motion.div>
 
-        <div className="mockup-code h-[200px] w-[600px]">
+        <motion.div
+          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <pre data-prefix="">
             <code>
-              <input type="text" value={input} onChange={handleInputChange} />
+              <input
+                type="text"
+                value={input}
+                onChange={handleInputChange}
+                className="w-full rounded-md bg-gray-700 p-2 text-white focus:outline-none"
+                placeholder="Type your code here..."
+              />
             </code>
           </pre>
-        </div>
-        <div className="mockup-code h-[200px] w-[600px]">
+        </motion.div>
+        <motion.div
+          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <pre data-prefix="">
             <code>{result}</code>
           </pre>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

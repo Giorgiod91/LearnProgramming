@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="cyberpunk">
+    <html lang="en" data-theme="retro">
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>

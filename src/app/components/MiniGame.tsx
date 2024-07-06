@@ -1,5 +1,6 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -33,12 +34,12 @@ function MiniGame({}: Props) {
   };
 
   return (
-    <div className="mx-auto flex max-w-screen-2xl flex-col justify-between gap-16 space-x-6 px-6 pb-10 pt-24 sm:px-8 sm:pt-28 lg:flex-row lg:gap-20 lg:pb-20">
-      <div className="mx-auto flex max-w-lg flex-col items-center justify-center gap-10 text-center sm:justify-between lg:items-start lg:gap-14 lg:text-left">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 p-8">
+      <div className="mb-10 text-center text-white">
         <h1 className="text-5xl font-extrabold tracking-tight md:-mb-4 lg:text-6xl xl:text-7xl">
-          Try the miniGame that's coded in JavaScript
+          Try the MiniGame Coded in JavaScript
         </h1>
-        <div className="flex flex-row space-x-5 p-4">
+        <div className="mt-8 flex justify-center space-x-5 p-4">
           <a className="cursor-pointer" onClick={() => setCarPicked("🚕")}>
             🚕
           </a>
@@ -71,7 +72,7 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:via-blue-300 hover:to-cyan-400 hover:text-black"
+          className="transform rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
         >
           <span className="ml-2">Forward</span>
         </button>
@@ -94,7 +95,7 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:via-blue-300 hover:to-cyan-400 hover:text-black"
+          className="transform rounded-lg bg-gradient-to-r from-pink-400 to-purple-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
         >
           <span className="ml-2">Back</span>
         </button>
@@ -115,7 +116,7 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:via-blue-300 hover:to-cyan-400 hover:text-black"
+          className="transform rounded-lg bg-gradient-to-r from-blue-400 to-cyan-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
         >
           <span className="ml-2">Up</span>
         </button>
@@ -136,15 +137,21 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="via-magenta-500 btn btn-wide bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-blue-500 hover:via-blue-300 hover:to-cyan-400 hover:text-black"
+          className="transform rounded-lg bg-gradient-to-r from-green-400 to-lime-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
         >
           <span className="ml-2">Down</span>
         </button>
         {fuel <= 20 && (
-          <button onClick={reFuel} className="btn btn-primary ">
+          <button
+            onClick={reFuel}
+            className="mb-10 transform rounded-lg bg-red-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          >
             Refuel
           </button>
         )}
+        <div className="mb-4 text-lg text-white">
+          Fuel: <span className="font-bold">{fuel}%</span>
+        </div>
 
         <div>
           <p className="text-lg leading-relaxed opacity-80">
@@ -155,11 +162,14 @@ function MiniGame({}: Props) {
       </div>
 
       <div className="relative mx-auto w-full max-w-3xl">
-        <div className="mockup-phone">
+        <div className="mockup-phone mx-auto border-primary bg-white">
           <div className="camera"></div>
           <div className="display">
-            <div className="artboard artboard-demo phone-1">
-              <div
+            <div className="artboard artboard-demo phone-1 relative mx-auto h-80 w-48 bg-gray-100">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
                 className={fuel <= 20 ? "tooltip tooltip-open" : "tooltip"}
                 data-tip={
                   fuel <= 20
@@ -173,7 +183,7 @@ function MiniGame({}: Props) {
                 }}
               >
                 {car[0].logo}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
