@@ -34,7 +34,7 @@ function MiniGame({}: Props) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 p-8">
+    <div className="flex min-h-screen  flex-col items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 p-8">
       <div className="mb-10 text-center text-white">
         <h1 className="text-5xl font-extrabold tracking-tight md:-mb-4 lg:text-6xl xl:text-7xl">
           Try the MiniGame Coded in JavaScript

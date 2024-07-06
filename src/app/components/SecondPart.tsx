@@ -64,14 +64,19 @@ function SecondPart({}: Props) {
           </pre>
         </motion.div>
         <motion.div
-          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          className="mockup-browser h-[200px] w-[600px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <pre data-prefix="">
-            <code>{finished ? text2 : "....."}</code>
-          </pre>
+          <div className="mockup-browser-toolbar flex items-center border-b border-gray-200 bg-gray-100 px-4 py-2">
+            <span className="mr-2 bg-red-300"></span>
+            <span className="mr-2 bg-yellow-300"></span>
+            <span className="mr-2 bg-green-300"></span>
+          </div>
+          <div className="mockup-browser-content bg-gray-50 px-4 py-2 text-gray-800">
+            {finished ? text2 : "....."}
+          </div>
         </motion.div>
 
         <motion.div
@@ -93,14 +98,19 @@ function SecondPart({}: Props) {
           </pre>
         </motion.div>
         <motion.div
-          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          className="mockup-browser h-[200px] w-[600px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <pre data-prefix="">
-            <code>{result}</code>
-          </pre>
+          <div className="mockup-browser-toolbar flex items-center border-b border-gray-200 bg-gray-100 px-4 py-2">
+            <span className="mr-2 bg-red-300"></span>
+            <span className="mr-2 bg-yellow-300"></span>
+            <span className="mr-2 bg-green-300"></span>
+          </div>
+          <div className="mockup-browser-content bg-gray-50 px-4 py-2 text-gray-800">
+            {result}
+          </div>
         </motion.div>
       </div>
     </div>
