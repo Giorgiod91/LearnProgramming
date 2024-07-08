@@ -4,7 +4,7 @@ type Props = {};
 
 function Navbar({}: Props) {
   return (
-    <div className="navbar mx-auto max-w-4xl bg-base-100">
+    <div className="navbar mx-auto max-w-2xl bg-base-100 md:max-w-4xl ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

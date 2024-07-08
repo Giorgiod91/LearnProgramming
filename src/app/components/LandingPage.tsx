@@ -67,7 +67,7 @@ function LandingPage({}: Props) {
   return (
     <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center p-4">
       <div className="flex items-center justify-center">
-        <h1 className="text-center text-5xl font-extrabold tracking-tight lg:text-left lg:text-6xl xl:text-7xl">
+        <h1 className="text-center text-4xl font-extrabold tracking-tight lg:text-left lg:text-6xl xl:text-7xl">
           Is Programming for me
         </h1>
         <div className="pl-2">

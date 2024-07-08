@@ -50,7 +50,7 @@ function SecondPart({}: Props) {
   };
 
   return (
-    <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center p-4">
+    <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center  p-4  ">
       <h1 className="mb-4 text-center text-2xl font-bold text-gray-800">
         You can create things just with some code! Try it out yourself
       </h1>
@@ -60,7 +60,7 @@ function SecondPart({}: Props) {
       </p>
       <div className="grid grid-cols-1 gap-5 p-4 sm:grid-cols-2 md:gap-8">
         <motion.div
-          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          className="mockup-code h-[200px] w-[400px] rounded-lg bg-gray-800 p-4 text-white shadow-md md:h-[200px] md:w-[600px]"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -70,7 +70,7 @@ function SecondPart({}: Props) {
           </pre>
         </motion.div>
         <motion.div
-          className="mockup-browser h-[200px] w-[600px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md"
+          className="mockup-browser h-[200px] w-[400px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md md:h-[200px] md:w-[600px]"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -86,7 +86,7 @@ function SecondPart({}: Props) {
         </motion.div>
 
         <motion.div
-          className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
+          className="mockup-code h-[200px] w-[400px] rounded-lg bg-gray-800 p-4 text-white shadow-md md:h-[200px] md:w-[600px]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -104,7 +104,7 @@ function SecondPart({}: Props) {
           </pre>
         </motion.div>
         <motion.div
-          className="mockup-browser h-[200px] w-[600px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md"
+          className="mockup-browser h-[200px] w-[400px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md md:h-[200px] md:w-[600px]"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
