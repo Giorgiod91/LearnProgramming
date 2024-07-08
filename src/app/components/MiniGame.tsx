@@ -81,7 +81,6 @@ function MiniGame({}: Props) {
               return;
             }
             if (fuel <= 20) {
-              alert("You are soon out of fuel");
               return;
             }
             setCar((prevCar) => [
@@ -94,7 +93,11 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="transform rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          className={
+            fuel <= 10
+              ? "hidden"
+              : "transform rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          }
         >
           <span className="ml-2">Forward</span>
         </button>
@@ -104,7 +107,6 @@ function MiniGame({}: Props) {
             setMaxForward((maxForward) => maxForward - 1);
 
             if (fuel <= 20) {
-              alert("You are soon out of fuel");
               return;
             }
             setCar((prevCar) => [
@@ -117,7 +119,11 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="transform rounded-lg bg-gradient-to-r from-pink-400 to-purple-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          className={
+            fuel <= 10
+              ? "hidden"
+              : "transform rounded-lg bg-gradient-to-r from-pink-400 to-purple-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          }
         >
           <span className="ml-2">Back</span>
         </button>
@@ -125,7 +131,6 @@ function MiniGame({}: Props) {
           onClick={() => {
             setFuel((fuel) => fuel - 10);
             if (fuel <= 20) {
-              alert("You are soon out of fuel");
               return;
             }
             setCar((prevCar) => [
@@ -138,15 +143,18 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="transform rounded-lg bg-gradient-to-r from-blue-400 to-cyan-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          className={
+            fuel <= 10
+              ? "hidden"
+              : "transform rounded-lg bg-gradient-to-r from-blue-400 to-cyan-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          }
         >
           <span className="ml-2">Down</span>
         </button>
         <button
           onClick={() => {
             setFuel((fuel) => fuel - 10);
-            if (fuel <= 20) {
-              alert("You are soon out of fuel");
+            if (fuel <= 10) {
               return;
             }
             setCar((prevCar) => [
@@ -159,7 +167,11 @@ function MiniGame({}: Props) {
               },
             ]);
           }}
-          className="transform rounded-lg bg-gradient-to-r from-green-400 to-lime-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          className={
+            fuel <= 10
+              ? "hidden"
+              : "transform rounded-lg bg-gradient-to-r from-green-400 to-lime-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+          }
         >
           <span className="ml-2">UP</span>
         </button>
@@ -194,7 +206,7 @@ function MiniGame({}: Props) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className={fuel <= 20 ? "tooltip tooltip-open" : "tooltip"}
+              className={fuel <= 20 ? "tooltip tooltip-open" : "tooltip "}
               data-tip={
                 fuel <= 20
                   ? "Out of fuel press the refuel button"

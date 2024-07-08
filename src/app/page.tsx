@@ -4,10 +4,12 @@ import LandingPage from "./components/LandingPage";
 import SecondPart from "./components/SecondPart";
 import MiniGame from "./components/MiniGame";
 import Banner1 from "./components/Banner1";
+import Navbar from "./components/Navbar";
 
 export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col scroll-smooth">
+      <Navbar />
       <section className="h-screen items-center justify-center">
         <LandingPage />
       </section>

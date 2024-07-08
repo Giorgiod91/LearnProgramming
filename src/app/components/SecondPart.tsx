@@ -9,8 +9,10 @@ const TheCode2 = " hello world ";
 const tryOut = "Try out yourself";
 
 const theTryOut = (input: string) => {
-  if (input === "<div> h1 hello world  h1</div>") {
-    return "hello world";
+  const realOutput = input.match(/<div>\s*<h1>\s*(.*?)\s*<\/h1>\s*<\/div>/);
+  if (realOutput) {
+    const output = realOutput[1]!.trim();
+    return output;
   } else {
     return "Oh no, something is wrong or missing.";
   }
@@ -49,9 +51,13 @@ function SecondPart({}: Props) {
 
   return (
     <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center p-4">
-      <h1 className="mb-4 text-2xl font-bold text-gray-800">
+      <h1 className="mb-4 text-center text-2xl font-bold text-gray-800">
         You can create things just with some code! Try it out yourself
       </h1>
+      <p>
+        Just put the words u want to display in a div and h1 tag like in the
+        example
+      </p>
       <div className="grid grid-cols-1 gap-5 p-4 sm:grid-cols-2 md:gap-8">
         <motion.div
           className="mockup-code h-[200px] w-[600px] rounded-lg bg-gray-800 p-4 text-white shadow-md"
@@ -70,11 +76,11 @@ function SecondPart({}: Props) {
           transition={{ duration: 0.5 }}
         >
           <div className="mockup-browser-toolbar flex items-center border-b border-gray-200 bg-gray-100 px-4 py-2">
-            <span className="mr-2 bg-red-300"></span>
-            <span className="mr-2 bg-yellow-300"></span>
-            <span className="mr-2 bg-green-300"></span>
+            <span className="mr-2 h-3 w-3 rounded-full bg-red-500"></span>
+            <span className="mr-2 h-3 w-3 rounded-full bg-yellow-500"></span>
+            <span className="mr-2 h-3 w-3 rounded-full bg-green-500"></span>
           </div>
-          <div className="mockup-browser-content bg-gray-50 px-4 py-2 text-gray-800">
+          <div className="mockup-browser-content bg-gray-50 px-4 py-2 text-center text-gray-800">
             {finished ? text2 : "....."}
           </div>
         </motion.div>
@@ -91,7 +97,7 @@ function SecondPart({}: Props) {
                 type="text"
                 value={input}
                 onChange={handleInputChange}
-                className="w-full rounded-md bg-gray-700 p-2 text-white focus:outline-none"
+                className="w-full rounded-md bg-gray-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Type your code here..."
               />
             </code>
@@ -104,11 +110,11 @@ function SecondPart({}: Props) {
           transition={{ duration: 0.5 }}
         >
           <div className="mockup-browser-toolbar flex items-center border-b border-gray-200 bg-gray-100 px-4 py-2">
-            <span className="mr-2 bg-red-300"></span>
-            <span className="mr-2 bg-yellow-300"></span>
-            <span className="mr-2 bg-green-300"></span>
+            <span className="mr-2 h-3 w-3 rounded-full bg-red-500"></span>
+            <span className="mr-2 h-3 w-3 rounded-full bg-yellow-500"></span>
+            <span className="mr-2 h-3 w-3 rounded-full bg-green-500"></span>
           </div>
-          <div className="mockup-browser-content bg-gray-50 px-4 py-2 text-gray-800">
+          <div className="mockup-browser-content bg-gray-50 px-4 py-2 text-center text-gray-800">
             {result}
           </div>
         </motion.div>
