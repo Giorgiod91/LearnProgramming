@@ -4,9 +4,14 @@ import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
 type Props = {};
-const TheCode = "<div> h1 hello world  h1</div>";
+const TheCode = "<div> <h1> hello world  </h1> </div>";
 const TheCode2 = " hello world ";
 const tryOut = "Try out yourself";
+const h1 = "<h1></h1>";
+const div = "<div></div>";
+const example1 = "<div> <h1> hello world  </h1> </div>";
+const example2 = "<div> <h1> Welcome! </h1> </div>";
+const example3 = "<div> <h1> Goodbye! </h1> </div>";
 
 const theTryOut = (input: string) => {
   const realOutput = input.match(/<div>\s*<h1>\s*(.*?)\s*<\/h1>\s*<\/div>/);
@@ -50,14 +55,17 @@ function SecondPart({}: Props) {
   };
 
   return (
-    <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center  p-4  ">
-      <h1 className="mb-4 text-center text-2xl font-bold text-gray-800">
-        You can create things just with some code! Try it out yourself
-      </h1>
-      <p>
-        Just put the words u want to display in a div and h1 tag like in the
-        example
-      </p>
+    <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center p-4">
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 lg:text-6xl">
+          You can create things just with some code! Try it out yourself
+        </h1>
+        <p className="text-2xl text-gray-700">
+          Just put the words you want to display in a div and h1 tag like in the
+          example.
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 gap-5 p-4 sm:grid-cols-2 md:gap-8">
         <motion.div
           className="mockup-code h-[200px] w-[400px] rounded-lg bg-gray-800 p-4 text-white shadow-md md:h-[200px] md:w-[600px]"
@@ -69,6 +77,7 @@ function SecondPart({}: Props) {
             <code>{text}</code>
           </pre>
         </motion.div>
+
         <motion.div
           className="mockup-browser h-[200px] w-[400px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md md:h-[200px] md:w-[600px]"
           initial={{ opacity: 0, x: 50 }}
@@ -103,6 +112,7 @@ function SecondPart({}: Props) {
             </code>
           </pre>
         </motion.div>
+
         <motion.div
           className="mockup-browser h-[200px] w-[400px] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md md:h-[200px] md:w-[600px]"
           initial={{ opacity: 0, y: -50 }}
