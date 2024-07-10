@@ -1,30 +1,18 @@
 # LearnProgramm
 
 ![image](https://github.com/Giorgiod91/LearnProgramming/assets/109972616/34c8f5dc-aaaf-4770-9ea3-f5021b7be9fc)
+# Is Programming For Me?
 
+"Is Programming For Me?" is an interactive web application designed to help users explore different areas of programming. The app features a landing page where users can discover technologies related to frontend, backend, database, and DevOps. It also includes a mini-game coded in JavaScript for a fun and engaging experience.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Learnable Technologies**: Users can explore different technologies categorized into frontend, backend, database, and DevOps.
+- **Interactive Typewriter Demo**: Try out coding with a simple typewriter effect that demonstrates HTML structure.
+- **MiniGame**: A fun game where users can control a car, refuel, and reach a goal within a grid.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Technologies Used
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- **Frontend**: React, Framer Motion, Tailwind CSS
+- **Icons**: React Icons
+- **Typewriter Effect**: react-simple-typewriter
