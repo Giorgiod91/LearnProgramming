@@ -63,6 +63,12 @@ function LandingPage({}: Props) {
     setBackendClicked(false);
     setDatabaseClicked(false);
   };
+  const handleCategoryClick = (category: string) => {
+    setFrontendClicked(category === "Frontend");
+    setBackendClicked(category === "Backend");
+    setDatabaseClicked(category === "Database");
+    setDevOpsClicked(category === "DevOps");
+  };
 
   return (
     <div className="mx-auto mt-8 flex h-screen max-w-screen-2xl flex-col items-center justify-center p-4">
@@ -93,13 +99,12 @@ function LandingPage({}: Props) {
             Things you can Learn
           </h1>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {/* Frontend */}
             <motion.div
               key="Frontend"
               className="rounded-lg border bg-white p-4 shadow-lg"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              onClick={handleFrontendClick}
+              onClick={() => handleCategoryClick("Frontend")}
             >
               {frontendClicked && (
                 <>
@@ -125,13 +130,12 @@ function LandingPage({}: Props) {
               )}
             </motion.div>
 
-            {/* Backend */}
             <motion.div
               key="Backend"
               className="rounded-lg border bg-white p-4 shadow-lg"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              onClick={handleBackendClick}
+              onClick={() => handleCategoryClick("Backend")}
             >
               {backendClicked && (
                 <>
@@ -157,13 +161,12 @@ function LandingPage({}: Props) {
               )}
             </motion.div>
 
-            {/* Database */}
             <motion.div
               key="Database"
               className="rounded-lg border bg-white p-4 shadow-lg"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              onClick={handleDatabaseClick}
+              onClick={() => handleCategoryClick("Database")}
             >
               {databaseClicked && (
                 <>
@@ -189,13 +192,12 @@ function LandingPage({}: Props) {
               )}
             </motion.div>
 
-            {/* DevOps */}
             <motion.div
               key="DevOps"
               className="rounded-lg border bg-white p-4 shadow-lg"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              onClick={handleDevOpsClick}
+              onClick={() => handleCategoryClick("DevOps")}
             >
               {devOpsClicked && (
                 <>

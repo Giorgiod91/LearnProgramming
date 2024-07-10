@@ -46,7 +46,7 @@ function MiniGame({}: Props) {
   }, [car, goal]);
 
   return (
-    <div className="flex min-h-screen  flex-col items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 p-8">
+    <div className="flex min-h-screen  flex-col items-center justify-center bg-[#405D72] p-8">
       <div className="mb-10 text-center text-white">
         <h1 className="text-5xl font-extrabold tracking-tight md:-mb-4 lg:text-6xl xl:text-7xl">
           Try the MiniGame Coded in JavaScript
@@ -96,7 +96,7 @@ function MiniGame({}: Props) {
           className={
             fuel <= 10
               ? "hidden"
-              : "transform rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+              : "transform rounded-lg bg-neutral px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
           }
         >
           <span className="ml-2">Forward</span>
@@ -122,7 +122,7 @@ function MiniGame({}: Props) {
           className={
             fuel <= 10
               ? "hidden"
-              : "transform rounded-lg bg-gradient-to-r from-pink-400 to-purple-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+              : "transform rounded-lg bg-neutral px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
           }
         >
           <span className="ml-2">Back</span>
@@ -146,7 +146,7 @@ function MiniGame({}: Props) {
           className={
             fuel <= 10
               ? "hidden"
-              : "transform rounded-lg bg-gradient-to-r from-blue-400 to-cyan-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+              : "transform rounded-lg bg-neutral px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
           }
         >
           <span className="ml-2">Down</span>
@@ -170,7 +170,7 @@ function MiniGame({}: Props) {
           className={
             fuel <= 10
               ? "hidden"
-              : "transform rounded-lg bg-gradient-to-r from-green-400 to-lime-500 px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
+              : "transform rounded-lg bg-neutral px-6 py-3 text-white shadow-md transition-transform hover:scale-105 focus:outline-none"
           }
         >
           <span className="ml-2">UP</span>
