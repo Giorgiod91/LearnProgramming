@@ -1,6 +1,7 @@
-# Create T3 App
+# LearnProgramm
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+![image](https://github.com/Giorgiod91/LearnProgramming/assets/109972616/34c8f5dc-aaaf-4770-9ea3-f5021b7be9fc)
+
 
 ## What's next? How do I make an app with this?
 
